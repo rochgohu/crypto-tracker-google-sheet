@@ -38,4 +38,7 @@ Default is **CAD** but you can change the format of the cells to display properl
 1. From "Settings" sheet, paste your discord webhook url in J2. [where to find my webhook?](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)
 2. Test the connection by clicking on "Cryptofolio > test Discord" to send a test notification to your server.						
 3. enable alert.						
-4. you will receive notification each day at 8AM. Click on **"Cryptofolio > Send reporting"** to manually trigger a notification.						
+4. you will receive notification each day at 8AM. Click on **"Cryptofolio > Send reporting"** to manually trigger a notification.
+
+## Donation
+Buy me a coffee !
