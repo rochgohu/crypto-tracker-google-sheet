@@ -1,11 +1,12 @@
 # crypto-tracker-google-sheet
-Free portfolio to manage your crypto currencies for Google Sheets. Track your transactions and measure profitability with real-time data
+Free Google Sheet to measure your crypto currencies performance. Track your transactions and measure profitability with real-time data coming from Coingecko
 
 ## Features
 
-- google sheet template
-- real-time market prices synchronized from Coingecko
-- Daily reportings sent to Discord
+- ready to use google sheet template.
+- Portfolio dashboard
+- real-time market prices synchronized from Coingecko (robust communication to reduce effects of Coingecko's limitation with Google Cloud).
+- Discord notifications and alerts.
 
 ## Installation
 ### get the template
