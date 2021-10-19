@@ -41,4 +41,4 @@ Default is **CAD** but you can change the format of the cells to display properl
 4. you will receive notification each day at 8AM. Click on **"Cryptofolio > Send reporting"** to manually trigger a notification.
 
 ## Donation
-Buy me a coffee !
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/bogzy)
