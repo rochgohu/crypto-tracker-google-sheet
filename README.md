@@ -13,3 +13,18 @@ Free portfolio to manage your crypto currencies for Google Sheets. Track your tr
 - Click File > Create a copy and rename it to make a copy fto your personal Drive. 
 This spreadsheet already includes App Script, Sheets and triggers to make it easy to use.
 ### Next Steps
+#### Install triggers on your google sheet
+1. From File Menu, click on **"Synchronize Crypto > create Triggers"** to create an automatic synchronization with __Coingecko API__
+2. on First Run, you will be ask to allow access for the script. Once granted, do step1 again.
+Triggers:
+- **Prices automation**: synchronize __every 10 minutes__ from Coingecko into db_coingecko
+- **Discord Workflow**: send a reporting notification to your Discord webhook __everyday at 8AM__
+- **Data recording**: store your global metrics __every 6 hours__ in the sheet **db_history**
+#### Add your first transaction
+1. From **Settings** sheet, select your currency code (e.g USD, CAD ... check [Currency Code](https://en.wikipedia.org/wiki/ISO_4217) to find your code).
+Default is **CAD** but you can change the format of the cells to display properly. Format > More Formats - More Currencies"						
+2. From **Settings** sheet, you can optionally edit the labels for types of operation and your technologies. You will find those options back when adding a new transaction into the sheet **"Transactions (Tx)"**						
+3. From **Transactions (Tx)** sheet, remove the first example lines and add your first operation.						
+4. If you track a new crypto code, write down ITS CODE in C cell, and ACCEPT the pop-up message to add the new crypto currency on the sheet **"Market (Mk)"**
+5. Use **Settings** to monitor your portfolio gains						
+### Optional
