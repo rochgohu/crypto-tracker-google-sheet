@@ -1,4 +1,16 @@
+/**
+ * @OnlyCurrentDoc
+ */
+
 function sortBy(arr, key, desc=true) {     if(!(desc)){ return arr.sort((a, b) => a[key] - b[key]) }return arr.sort((a, b) => b[key] - a[key]) }
+
+function beautify(number, plusSignFront = true, percent = false, dec = 2) {
+  if (percent) { number = parseFloat(number) * 100; }
+  if (plusSignFront) {
+    return (number > 0 ? "+" : "") + parseFloat(parseFloat(number).toFixed(dec)).toLocaleString('fr')
+  }
+  return parseFloat(parseFloat(number).toFixed(dec)).toLocaleString('fr')
+}
 
 function safeGuardImportJSON(urls = [], sheet = "", per_page = 250) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -22,7 +34,7 @@ function safeGuardImportJSON(urls = [], sheet = "", per_page = 250) {
             status = true;
             counting_success += 1;
             sheet
-              .getRange(1 + (i * per_page), 1, dataAll.length, dataAll[0].length)
+              .getRange(1 + (i * per_page) + (i > 0 ? 1: 0), 1, dataAll.length, dataAll[0].length)
               .setValues(dataAll);
           }
           break;
