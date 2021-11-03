@@ -20,16 +20,27 @@ function onEdit(e) {
         var choiceBtn = ui.alert(`New Crypto Detected: ${cellValue}`, "do you want to add it?", ui.ButtonSet.OK_CANCEL);
 
         if (choiceBtn == ui.Button.OK) {
-          var sh = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Market (Mk)"), lRow = sh.getLastRow();
-          var lCol = sh.getLastColumn(), range = sh.getRange(lRow, 1, 1, lCol);
+          var ss = SpreadsheetApp.getActiveSpreadsheet();
+          var sh = ss.getSheetByName("Market (Mk)");
+          let f = sh.getFilter();
+          if (f != null && typeof f == 'object') {
+            toFilter = f.getRange();
+            f.remove();
+          }
+
+          var lRow = sh.getLastRow(), lCol = sh.getLastColumn();
+
+          var range = ss.getRange('template_row_crypto');
 
           // copy last row to a new line and clean it with new crypto values
           sh.insertRowsAfter(lRow, 1);
           range.copyTo(sh.getRange(lRow + 1, 1, 1, lCol), { contentsOnly: false });
-          sh.getRange(lRow + 1, 2, 1, 2).setValues([["", cellValue]]);
+          sh.getRange(lRow + 1, 3, 1, 1).setValue(cellValue);
+
+          ss.setNamedRange("portfolio_detail", sh.getRange("A13:AA"));
 
           // sort by crypto
-          sh.getRange('portfolio_detail').sort(3);
+          ss.getRange('portfolio_detail').createFilter().sort(3,true);
 
         }
       }
@@ -41,6 +52,19 @@ function onEdit(e) {
 
   }
 
+}
+// toString,remove,sort,getRange,getColumnFilterCriteria,getColumnSortSpec,setColumnFilterCriteria,removeColumnFilterCriteria
+function messinwithmysheetsfilter() {
+  const ss = SpreadsheetApp.getActive();
+  const sh = ss.getSheetByName('Market (Mk)');
+
+  let f = sh.getFilter();
+  if (f != null && typeof f == 'object') {
+    toFilter = f.getRange();
+
+    f.remove();
+    toFilter.createFilter();
+  }
 }
 
 function onOpen() {
