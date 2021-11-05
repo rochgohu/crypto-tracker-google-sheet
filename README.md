@@ -55,18 +55,18 @@ Default is **CAD** but you can change the format of the cells to display properl
 3. enable alert.						
 4. you will receive notification each day at 8AM. Click on **"Cryptofolio > Send reporting"** to manually trigger a notification.
 
-### Frequently Asked Questions					
-#### Q: How to manage TRADE Tx record?						
+## Frequently Asked Questions					
+### Q: How to manage TRADE Tx record?						
 R: use 2 TRADE rows to represent the transaction and get the correct balance when trading A for B: 1 row to decrement coins for A and 1 row to increment coins for B. Use a 3rd row CORRECTION to equalize Tx Value balance if needed						
 
-#### Q: What means "same" in Low/High 24h column?						
+### Q: What means "same" in Low/High 24h column?						
 R: "Same" is displayed when the variation High vs Low prices is jusdged too small to be meaningful (default % is < 3.5%).					
 
-#### Q: What means the KPI DELTA RATE?						
+### Q: What means the KPI DELTA RATE?						
 R: This KPI measures how your portfolio performed in the last 24h compared to the top500 average trend.						
 
-#### Q: Why does Market sheet table have several missing values?  						
+### Q: Why does Market sheet table have several missing values?  						
 R: Be sure that you have followed step2 through to connect this google sheet to Coingecko.						
 
-#### Q: Why do Market sheet charts are displaying nothing?						
+### Q: Why do Market sheet charts are displaying nothing?						
 R: your data is recorded every 6 hours in the hidden sheet "db_history". come back in a few hours.						
