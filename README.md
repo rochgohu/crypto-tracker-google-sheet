@@ -2,6 +2,9 @@
 Free Google Sheet to measure your crypto currencies performance. Track your transactions and measure profitability with real-time data coming from Coingecko
 
 <img src="screenshot.png" width="150">
+<img src="transactions.png" width="150">
+<img src="dashboard.png" width="150">
+<img src="permissions.png" width="250">
 
 ## Features
 
