@@ -21,7 +21,7 @@ This spreadsheet already includes App Script, Sheets and triggers to make it eas
 1. From File Menu, click on **"Synchronize Crypto > create Triggers"** to create an automatic synchronization with __Coingecko API__
 2. on First Run, you will be ask to allow access for the script. Once granted, do step1 again.
 Triggers:
-- **Prices automation**: synchronize __every 10 minutes__ from Coingecko into db_coingecko
+- **Prices automation**: synchronize __every 5 minutes__ from Coingecko into db_coingecko
 - **Discord Workflow**: send a reporting notification to your Discord webhook __everyday at 8AM__
 - **Data recording**: store your global metrics __every 6 hours__ in the sheet **db_history**
 
@@ -33,12 +33,12 @@ Default is **CAD** but you can change the format of the cells to display properl
 4. If you track a new crypto code, write down ITS CODE in C cell, and ACCEPT the pop-up message to add the new crypto currency on the sheet **"Market (Mk)"**
 5. Use **Settings** to monitor your portfolio gains
 		
-| Column           | Description                                                                 |   |   |   |   |         Required        |
-|------------------|-----------------------------------------------------------------------------|---|---|---|---|:-----------------------:|
-| Coins            | Number of coins part of the Tx you are recording (e.g. buying 3,4564 coins) |   |   |   |   |           yes           |
-| Coin Value at Tx | Price in your traditional currency for 1 coin                               |   |   |   |   | only BUY / SELL / TRADE |
-| Tx Value         | Transaction Value including fees (coins x unit price + fees)                |   |   |   |   |     yes (automatic)     |
-| Fee              | fees paid for Tx                                                            |   |   |   |   |           yes           |					
+| Column           | Description                                                                 |   |         Required        |
+|------------------|-----------------------------------------------------------------------------|---|:-----------------------:|
+| Coins            | Number of coins part of the Tx you are recording (e.g. buying 3,4564 coins) |   |           yes           |
+| Coin Value at Tx | Price in your traditional currency for 1 coin                               |   | only BUY / SELL / TRADE |
+| Tx Value         | Transaction Value including fees (coins x unit price + fees)                |   |     yes (automatic)     |
+| Fee              | fees paid for Tx                                                            |   |           yes           |					
 ### Optional
 #### enable Discord notifications
 1. From "Settings" sheet, paste your discord webhook url in J2. [where to find my webhook?](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)
@@ -46,3 +46,18 @@ Default is **CAD** but you can change the format of the cells to display properl
 3. enable alert.						
 4. you will receive notification each day at 8AM. Click on **"Cryptofolio > Send reporting"** to manually trigger a notification.
 
+### Frequently Asked Questions					
+#### Q: How to manage TRADE Tx record?						
+R: use 2 TRADE rows to represent the transaction and get the correct balance when trading A for B: 1 row to decrement coins for A and 1 row to increment coins for B. Use a 3rd row CORRECTION to equalize Tx Value balance if needed						
+
+#### Q: What means "same" in Low/High 24h column?						
+R: "Same" is displayed when the variation High vs Low prices is jusdged too small to be meaningful (default % is < 3.5%).					
+
+#### Q: What means the KPI DELTA RATE?						
+R: This KPI measures how your portfolio performed in the last 24h compared to the top500 average trend.						
+
+#### Q: Why does Market sheet table have several missing values?  						
+R: Be sure that you have followed step2 through to connect this google sheet to Coingecko.						
+
+#### Q: Why do Market sheet charts are displaying nothing?						
+R: your data is recorded every 6 hours in the hidden sheet "db_history". come back in a few hours.						
