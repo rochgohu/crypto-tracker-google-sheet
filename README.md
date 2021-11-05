@@ -14,11 +14,11 @@ Free Google Sheet to measure your crypto currencies performance. Track your tran
 
 
 ## Features
-
-- ready to use google sheet template.
+- automatic top500 coins support from Coingecko
+- ready to use template
 - Portfolio dashboard
 - real-time market prices synchronized from Coingecko (robust communication to reduce effects of Coingecko's limitation with Google Cloud).
-- Discord notifications and alerts.
+- Discord Connector (via Webhook): Discord notifications and alerts.
 
 ## Installation
 ### get the template
