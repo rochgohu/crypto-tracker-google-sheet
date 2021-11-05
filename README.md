@@ -13,7 +13,7 @@ Free Google Sheet to measure your crypto currencies performance. Track your tran
 ## Installation
 ### get the template
 - Go to https://docs.google.com/spreadsheets/d/12O0td_IZSjrZTCnVupI2gyR-eYX7yuB6cdSplKHF8nU
-- Click File > Create a copy and rename it to make a copy fto your personal Drive. 
+- Click **File > Create a copy** and rename it to make a copy fto your personal Drive. 
 This spreadsheet already includes App Script, Sheets and triggers to make it easy to use.
 
 ### Next Steps
