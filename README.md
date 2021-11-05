@@ -1,16 +1,16 @@
 # crypto-tracker-google-sheet
 Free Google Sheet to measure your crypto currencies performance. Track your transactions and measure profitability with real-time data coming from Coingecko
 
-
-<p float="left">
-	<img src="/screenshot.png" width="350">
-	<img src="/permissions.png" width="350">
-</p>
-	
 <p float="left">
 	<img src="/transactions.png" width="500">
 	<img src="/dashboard.png" width="500">
 </p>
+<p float="left">
+	<img src="/screenshot.png" width="300">
+	<img src="/permissions.png" width="300">
+</p>
+	
+
 
 
 ## Features
