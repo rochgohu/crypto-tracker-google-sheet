@@ -7,7 +7,7 @@ Free Google Sheet to measure your crypto currencies performance. Track your tran
 </p>
 <p float="left">
 	<img src="/screenshot.png" width="300">
-	<img src="/permissions.png" width="300">
+	<img src="/permissions.png" width="200">
 </p>
 	
 
