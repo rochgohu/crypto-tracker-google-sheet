@@ -1,72 +1,3 @@
-function onEdit(e) {
-  var myRange = SpreadsheetApp.getActiveSpreadsheet().getRange('crypto_opes');
-  var existingValues = SpreadsheetApp.getActiveSpreadsheet().getRange('crypto_market');
-  // SpreadsheetApp.getUi().alert("myRange in A1 Notation is: " + myRange.getA1Notation()); //If you're having problems, uncomment this to make sure your named range is properly defined
-
-  //Let's get the row & column indexes of the active cell
-  var activeSheet = e.source.getActiveSheet();
-  var row = e.range.getRow();
-  var col = e.range.getColumn();
-
-  if (activeSheet.getName() == "Transactions (Tx)") {
-
-    //Check that your active cell is within your named range
-    if (col >= myRange.getColumn() && col <= myRange.getLastColumn() && row >= myRange.getRow() && row <= myRange.getLastRow()) { //As defined by your Named Range
-      var cellValue = SpreadsheetApp.getActiveSheet().getRange(row, col).getValue().toUpperCase();
-      var cryptoRange = existingValues.getValues();
-
-      if (cryptoRange.flat().includes(cellValue) === false) {
-        var ui = SpreadsheetApp.getUi();
-        var choiceBtn = ui.alert(`New Crypto Detected: ${cellValue}`, "do you want to add it?", ui.ButtonSet.OK_CANCEL);
-
-        if (choiceBtn == ui.Button.OK) {
-          var ss = SpreadsheetApp.getActiveSpreadsheet();
-          var sh = ss.getSheetByName("Market (Mk)");
-          let f = sh.getFilter();
-          if (f != null && typeof f == 'object') {
-            toFilter = f.getRange();
-            f.remove();
-          }
-
-          var lRow = sh.getLastRow(), lCol = sh.getLastColumn();
-
-          var range = ss.getRange('template_row_crypto');
-
-          // copy last row to a new line and clean it with new crypto values
-          sh.insertRowsAfter(lRow, 1);
-          range.copyTo(sh.getRange(lRow + 1, 1, 1, lCol), { contentsOnly: false });
-          sh.getRange(lRow + 1, 3, 1, 1).setValue(cellValue);
-
-          ss.setNamedRange("portfolio_detail", sh.getRange("A13:AA"));
-
-          // sort by crypto
-          ss.getRange('portfolio_detail').createFilter().sort(3,true);
-
-        }
-      }
-
-    } else {
-      // SpreadsheetApp.getUi().alert('You Edited a Cell OUTSIDE the Range!');//Comment this out or insert code if you want to do something if the edited cells AREN'T inside your named range
-      return;
-    }
-
-  }
-
-}
-// toString,remove,sort,getRange,getColumnFilterCriteria,getColumnSortSpec,setColumnFilterCriteria,removeColumnFilterCriteria
-function messinwithmysheetsfilter() {
-  const ss = SpreadsheetApp.getActive();
-  const sh = ss.getSheetByName('Market (Mk)');
-
-  let f = sh.getFilter();
-  if (f != null && typeof f == 'object') {
-    toFilter = f.getRange();
-
-    f.remove();
-    toFilter.createFilter();
-  }
-}
-
 function onOpen() {
   SpreadsheetApp.getUi().createMenu("Cryptofolio")
     .addItem("Create Triggers", "createTriggers")
@@ -101,3 +32,58 @@ function initTriggers() {
     .atHour(8)
     .create();
 }
+
+function onEdit(e) {
+
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ui = SpreadsheetApp.getUi();
+
+  var sh = ss.getSheetByName("Market (Mk)");
+
+  var myRange = ss.getRange('crypto_opes');
+  var existingValues = ss.getRange('crypto_market');
+  var uiFormat = ss.getRange('fiat_currency');
+
+  var activeSheet = e.source.getActiveSheet();
+  var row = e.range.getRow();
+  var col = e.range.getColumn();
+
+
+  if (activeSheet.getName() == "Settings") {
+    if (col >= uiFormat.getColumn() && col <= uiFormat.getLastColumn() && row >= uiFormat.getRow() && row <= uiFormat.getLastRow()) {
+      updateCurrencyFormat();
+    }
+  }
+  else if (activeSheet.getName() == "Transactions (Tx)") {
+
+    if (col >= myRange.getColumn() && col <= myRange.getLastColumn() && row >= myRange.getRow() && row <= myRange.getLastRow()) {
+      var cellValue = SpreadsheetApp.getActiveSheet().getRange(row, col).getValue().toUpperCase();
+      var cryptoRange = existingValues.getValues();
+
+      if (cryptoRange.flat().includes(cellValue) === false) {
+        var choiceBtn = ui.alert(`New Crypto Detected: ${cellValue}`, "do you want to add it?", ui.ButtonSet.OK_CANCEL);
+        if (choiceBtn == ui.Button.OK) {
+
+          let f = sh.getFilter();
+          if (f != null && typeof f == 'object') {
+            toFilter = f.getRange();
+            f.remove();
+          }
+
+          var lRow = sh.getLastRow(), lCol = sh.getLastColumn();
+
+          var range = ss.getRange('template_row_crypto');
+
+          sh.insertRowsAfter(lRow, 1);
+          range.copyTo(sh.getRange(lRow + 1, 1, 1, lCol), { contentsOnly: false });
+          sh.getRange(lRow + 1, 3, 1, 1).setValue(cellValue);
+
+          ss.setNamedRange("portfolio_detail", sh.getRange("A13:AA"));
+          ss.getRange('portfolio_detail').createFilter().sort(3, true);
+        }
+      }
+
+    }
+  }
+}
+
