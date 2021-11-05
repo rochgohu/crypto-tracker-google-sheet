@@ -32,7 +32,13 @@ Default is **CAD** but you can change the format of the cells to display properl
 3. From **Transactions (Tx)** sheet, remove the first example lines and add your first operation.						
 4. If you track a new crypto code, write down ITS CODE in C cell, and ACCEPT the pop-up message to add the new crypto currency on the sheet **"Market (Mk)"**
 5. Use **Settings** to monitor your portfolio gains
-					
+		
+| Column           | Description                                                                 |   |   |   |   |         Required        |
+|------------------|-----------------------------------------------------------------------------|---|---|---|---|:-----------------------:|
+| Coins            | Number of coins part of the Tx you are recording (e.g. buying 3,4564 coins) |   |   |   |   |           yes           |
+| Coin Value at Tx | Price in your traditional currency for 1 coin                               |   |   |   |   | only BUY / SELL / TRADE |
+| Tx Value         | Transaction Value including fees (coins x unit price + fees)                |   |   |   |   |     yes (automatic)     |
+| Fee              | fees paid for Tx                                                            |   |   |   |   |           yes           |					
 ### Optional
 #### enable Discord notifications
 1. From "Settings" sheet, paste your discord webhook url in J2. [where to find my webhook?](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks)
