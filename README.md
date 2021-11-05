@@ -8,8 +8,8 @@ Free Google Sheet to measure your crypto currencies performance. Track your tran
 </p>
 	
 <p float="left">
-	<img src="/transactions.png" width="250">
-	<img src="/dashboard.png" width="250">
+	<img src="/transactions.png" width="500">
+	<img src="/dashboard.png" width="500">
 </p>
 
 
